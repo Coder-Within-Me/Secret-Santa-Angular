@@ -1,0 +1,27 @@
+.signin-outer-div {
+    background-image: url(../../../../../assets/images/signupbg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 1%;
+}
+
+#title {
+    margin-left: 24%;
+    padding: 2% 0%;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
+.link-text {
+    color: #4b92fb;
+    width: 25%;
+    font-size: 15px;
+}
+
+.link-text span{
+    cursor:pointer;
+}
+
+.errormsg{
+    color: red;
+}

@@ -1,0 +1,51 @@
+#title{
+    font-size: 60px;
+    font-family:'Courier New', Courier, monospace;
+    padding: 3% 28%;
+}
+
+.title-container {
+  margin: 2% 2% 1% 2%;
+  padding: 0.5%;
+  background-color: aquamarine;
+  display: flex;
+}
+.steps-title {
+  margin: 0% 15%; 
+  background-color: lightskyblue;
+}
+
+.steps-title :hover{
+  padding: 1%;
+  font-size: 18px;
+}
+
+.example-card {
+    width: 404px;
+    height: 200px;
+    background-color: white;
+  }
+
+  .card-container{
+    /* background-color: lightskyblue; */
+    margin: 1% 1% 2% 33%;
+    padding: 2% 5% 1% 5%;
+  }
+
+  .card-holder:hover .example-card{
+    background-color: rgb(169, 219, 251);
+    width: 414px;
+    height: 210px;
+  }
+
+  .card-outerdiv {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1%;
+  }
+
+  .button-div {
+    display: flex;
+    justify-content: space-around;
+    padding: 2% 37%;
+}

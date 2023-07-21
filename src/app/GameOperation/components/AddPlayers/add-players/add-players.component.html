@@ -1,0 +1,55 @@
+<!-- <h1>Secret Santa</h1> -->
+
+<div class="container">
+    <h1 style="text-align: center; padding-bottom: 5%;margin-left: 43%;font-size: 50px;"><b>Secret Santa</b></h1>
+    <form [formGroup]="addplayerForm">
+        <div style="margin-left: 47%;">
+            <div id="inputContainer">
+                <div class="playerEntry">
+                    <p>
+                        <mat-form-field appearance="outline">
+                        <mat-label>Group Name</mat-label>
+                        <input matInput placeholder="Enter Group Name" formControlName="groupName" name="groupName">
+                        </mat-form-field>
+                    </p>
+            
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Group Validity</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="groupValidityDate" name="groupValidityDate" readonly>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </p>
+                </div>
+                 <div formArrayName="players">
+                    <div *ngFor="let j of players.controls; let i = index;">
+                        <div class="playerEntry" id="data" [formGroupName]="i">
+                            <p>
+                                <mat-form-field appearance="outline">
+                                <mat-label>Player Name {{i + 1}}</mat-label>
+                                <input matInput placeholder="Player" formControlName="playerName" name="playerName">
+                                </mat-form-field>
+                            </p>
+                            <p>
+                                <mat-form-field appearance="outline">
+                                <mat-label>Player Email {{i + 1}}</mat-label>
+                                <input matInput placeholder="Email" formControlName="email" name="email">
+                                </mat-form-field> 
+                            </p>
+                            <div >
+                                <mat-icon style="margin-top: 50%;" name="removeicon" (click)="RemoveEle(i);" >person_remove</mat-icon>
+                            </div>
+                        </div>
+                     </div> 
+                 </div>
+            </div>
+            <div>
+                <button mat-raised-button style="margin-right: 5%;" (click)="CreateNew();">Add New</button>           
+                <button mat-raised-button>Save</button>
+            </div>
+            </div>
+    </form>
+    
+</div>

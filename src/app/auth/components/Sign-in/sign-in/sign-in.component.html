@@ -1,0 +1,46 @@
+
+<div class="signin-outer-div">
+    <div style="width: 100%; height: 600px;">
+        <h1 id="title">Sign in</h1>
+           
+        <div style="margin-left: 25%;">
+            <p style="width: 25%; padding-bottom: 2%; font-size: 15px;">
+                Your account gives you easy access to your wish list, drawn name and group page.
+            </p>
+            <div>
+                <form [formGroup]="SignInForm">
+                    <p>
+                        <mat-form-field appearance="outline" style="width: 25%;" required>
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Enter Email" formControlName="email" name="email">
+                        <mat-hint *ngIf="SignInForm.get('email')?.invalid && SignInForm.get('email')?.touched" class="errormsg">
+                            <span *ngIf="SignInForm.get('email')?.errors?.['required']">This is required field.</span>
+                            <span *ngIf="SignInForm.get('email')?.errors?.['email']">This is not a valid email address.</span>
+                        </mat-hint>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="outline" style="width: 25%;" required>
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Enter Password" [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-hint *ngIf="SignInForm.get('password')?.invalid && SignInForm.get('password')?.touched" class="errormsg">
+                            <span *ngIf="SignInForm.get('password')?.errors?.['required']">This is required field.</span>
+                            <span *ngIf="SignInForm.get('password')?.errors?.['minlength']">must have atleast 8 characters.</span>
+                        </mat-hint>
+                        </mat-form-field> 
+                    </p>
+                </form>   
+            </div>
+            <div>
+                <button mat-fab extended color="primary" [disabled]="SignInForm.invalid" (click)="SignIn()">
+                    Sign in
+                </button>
+                <p class="link-text" style="padding: 1% 0%;" (click)="openDialog();"><span>Forgotten your password ?</span> </p>
+                <p class="link-text" (click)="signupRedirect();"><span>Create an account</span></p>
+            </div>
+        </div>
+    </div>
+</div>

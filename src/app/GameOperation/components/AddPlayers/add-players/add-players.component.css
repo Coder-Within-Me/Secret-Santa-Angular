@@ -1,0 +1,17 @@
+
+.container {
+    margin: 5%;
+    font-family: Raleway;
+    padding: 3% 10% 5% 10%;
+    background-image: url(../../../../../assets/images/addPlayerBg.jpg);
+    background-size: 100%;
+    margin: 1%;
+}
+
+.playerEntry {
+    display: flex;
+}
+
+.playerEntry p {
+    margin-right: 20%;
+}

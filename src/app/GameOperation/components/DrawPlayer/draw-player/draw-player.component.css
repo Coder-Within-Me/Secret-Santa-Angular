@@ -1,0 +1,19 @@
+.mat-mdc-raised-button.color-button{
+    background-color:rgb(252, 191, 78);
+    color: white;
+    width: 30%;
+    height: 80px;
+    font-size: 20px;
+    margin: 5% 25%;
+} 
+
+.mat-mdc-form-field.drawnNameField{
+    width: 30%;
+    height: 80px;
+    font-size: 20px;
+}
+
+.matmdcInput.drawnNameInputField{
+    text-align: center;
+    background-color:white;
+}

@@ -1,0 +1,64 @@
+
+<div class="signin-outer-div">
+    <div style="width: 100%; height: 700px;">
+        <h1 id="title">Create an account</h1>
+           
+        <div style="margin-left: 25%;">
+            <p style="width: 25%; padding-bottom: 2%; font-size: 15px;">
+                Choose a password for the email address you are using for your DrawNames groups.
+                Choose a strong password that you haven't used anywhere else.
+            </p>
+            <div>
+                <form [formGroup]="SignUpForm" (ngSubmit)="SignUp()">
+                    <p>
+                        <mat-form-field appearance="outline" style="width: 25%;">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Enter Email" formControlName="email" name="email">
+                        <!-- <mat-hint class="errormsg">{{emailErrorMessage}}</mat-hint> -->
+                        <mat-hint *ngIf="SignUpForm.get('email')?.invalid && SignUpForm.get('email')?.touched" class="errormsg">
+                            <span *ngIf="SignUpForm.get('email')?.errors?.['required']">This is required field.</span>
+                            <span *ngIf="SignUpForm.get('email')?.errors?.['email']">This is not a valid email address.</span>
+                        </mat-hint>
+                        </mat-form-field> 
+                    </p>
+                    <p>
+                        <mat-form-field appearance="outline" style="width: 25%;" required>
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Enter Password"  [type]="hide ? 'password' : 'text'" formControlName="password" name="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <!-- <mat-hint class="errormsg">{{passwordErrorMessage}}</mat-hint> -->
+                        <mat-hint *ngIf="(SignUpForm.get('password')?.invalid && SignUpForm.get('password')?.touched) || (IsPasswordSame && SignUpForm.get('password')?.valid)" class="errormsg">
+                            <span *ngIf="SignUpForm.get('password')?.errors?.['required']">This is required field.</span>
+                            <span *ngIf="SignUpForm.get('password')?.errors?.['minlength']">must have atleast 8 characters.</span>
+                            <span *ngIf="IsPasswordSame">Password MisMatched</span>   
+                        </mat-hint>
+                        </mat-form-field> 
+                    </p>
+                    <p>
+                        <mat-form-field appearance="outline" style="width: 25%;" required>
+                        <mat-label>Re-Enter Password</mat-label>
+                        <input matInput placeholder="Re-Enter Password"  [type]="hide1 ? 'password' : 'text'" formControlName="rePassword" name="rePassword">
+                        <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                            <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <!-- <mat-hint class="errormsg">{{rePasswordErrorMessage}}</mat-hint> -->
+                        <mat-hint *ngIf="(SignUpForm.get('rePassword')?.invalid && SignUpForm.get('rePassword')?.touched) || (IsPasswordSame && SignUpForm.get('rePassword')?.valid)" class="errormsg">
+                            <span *ngIf="SignUpForm.get('rePassword')?.errors?.['required']">This is required field.</span>
+                            <span *ngIf="SignUpForm.get('rePassword')?.errors?.['minlength']">must have atleast 8 characters.</span>
+                            <span *ngIf="IsPasswordSame">Password MisMatched</span>
+                        </mat-hint>
+                        </mat-form-field> 
+                    </p>
+                </form>
+                <div>
+                    <button mat-fab extended color="primary" [disabled]="SignUpForm.invalid" (click)="SignUp()">
+                        Sign Up
+                    </button>
+                    <p class="link-text" style="padding: 1% 0%;" (click)="signinRedirect();"><span>Already have an account ?</span></p>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

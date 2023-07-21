@@ -1,0 +1,36 @@
+<div class="page-container">
+    <div class="title-container">
+        <p id="title">Group Name</p>
+        <p id="title">UserName</p>
+    </div>
+    <mat-tab-group animationDuration="2000ms">
+        <mat-tab label="Group Members">
+            <div class="comp-container">
+                <div class="comp-innerdiv">
+                    <app-group-members></app-group-members>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Draw Name">
+            <div class="comp-container">
+                <div class="comp-innerdiv">
+                    <app-draw-player></app-draw-player>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Your Wishlist">
+            <div class="comp-container">
+                <div class="comp-innerdiv" >
+                    <app-your-wishlist></app-your-wishlist>
+                </div> 
+            </div>          
+        </mat-tab>
+        <mat-tab label="Messages">
+            <div class="comp-container">
+                <div class="comp-innerdiv">
+                    <app-messages></app-messages>
+                </div>
+            </div>   
+        </mat-tab>
+      </mat-tab-group>
+</div>
